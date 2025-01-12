@@ -3,7 +3,7 @@ import { HangmanDrawing } from "./components/HangmanDrawing.tsx";
 import { HangmanWord } from "./components/HangmanWord.tsx";
 import { Keyboard } from "./components/Keyboard.tsx";
 import words from "./wordList.json";
-import { AppContainer, ResultText, KeyboardWrapper } from "./App.styles";
+import { AppBackground, AppContainer, ResultText, KeyboardWrapper } from "./App.styles";
 
 function getWord() {
     return words[Math.floor(Math.random() * words.length)];
@@ -65,6 +65,7 @@ function App() {
     }, []);
 
     return (
+        <AppBackground>
         <AppContainer>
             <ResultText>
                 {isWinner && "Winner! - Refresh to try again"}
@@ -87,6 +88,7 @@ function App() {
                 />
             </KeyboardWrapper>
         </AppContainer>
+        </AppBackground>
     );
 }
 

@@ -41,6 +41,11 @@ const KeyboardContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
     gap: 0.5rem;
+    
+    @media (max-width: 600px) {
+        gap: 0.3rem;
+        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Smaller buttons */
+    }
 `;
 
 const KeyButton = styled.button<{ $isActive: boolean; $isInactive: boolean }>`
@@ -74,6 +79,11 @@ const KeyButton = styled.button<{ $isActive: boolean; $isInactive: boolean }>`
 
     &:disabled {
         cursor: not-allowed;
+    }
+
+    @media (max-width: 600px) {
+        font-size: 1.8rem; /* Smaller font size */
+        padding: 0.3rem; /* Reduced padding */
     }
 `;
 
