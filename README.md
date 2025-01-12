@@ -1,50 +1,59 @@
-# React + TypeScript + Vite
+# Hangman Game 🎮
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fun and interactive Hangman game built using **React**, **TypeScript**, **Vite**, and **Styled Components**. This
+project demonstrates responsive design, PWA integration, and dynamic UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Inspiration
 
-## Expanding the ESLint configuration
+This project was built following the
+video [This Is A Great Beginner React/TypeScript Project](https://www.youtube.com/watch?v=-ONUyenGnWw) by **Web Dev
+Simplified**.
+<br> but it was adapted to use Styled Components for styling instead.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features 🚀
 
-- Configure the top-level `parserOptions` property like this:
+- **React + TypeScript**: Ensures a type-safe and scalable codebase.
+- **Vite**: Super-fast development and optimized builds.
+- **Styled Components**: Dynamic and scoped styling with responsive designs.
+- **PWA**: Installable on desktop and mobile, with offline support.
+- **Responsive Design**: Adjusts perfectly across different screen sizes.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## Live Demo
+
+Check out the live version of the app here: [Hangman Game](https://react-hangman-five.vercel.app/)
+
+---
+
+## Technologies Used
+
+- **React**: Component-based UI development.
+- **Vite**: Fast and optimized build tool.
+- **PWA**: Offline functionality and installable app.
+
+## Installation
+To run this project locally:
+
+1. Clone the repository and navigate to the project directory:
+   ```
+   git clone <https://github.com/vicmazzola/react-hangman>
+   cd react-hangman
+   ```
+
+2. Install dependencies:
+```
+npm install
+```
+3. Start the development server:
+```
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🚀 Deployment
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+The project was deployed using **Vercel**, ensuring fast and reliable hosting.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+
