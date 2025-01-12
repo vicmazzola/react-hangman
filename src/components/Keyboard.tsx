@@ -43,7 +43,7 @@ const KeyboardContainer = styled.div`
     gap: 0.5rem;
 `;
 
-const KeyButton = styled.button<{ isActive: boolean; isInactive: boolean }>`
+const KeyButton = styled.button<{ $isActive: boolean; $isInactive: boolean }>`
     width: 100%;
     aspect-ratio: 1 / 1;
     font-size: 2.5rem;
@@ -52,30 +52,31 @@ const KeyButton = styled.button<{ isActive: boolean; isInactive: boolean }>`
     padding: 0.5rem;
     border: 3px solid black;
     background: ${(props) =>
-            props.isActive
+            props.$isActive
                     ? "hsl(200, 100%, 50%)"
-                    : props.isInactive
+                    : props.$isInactive
                             ? "gray"
                             : "none"};
     color: ${(props) =>
-            props.isActive || props.isInactive ? "white" : "black"};
+            props.$isActive || props.$isInactive ? "white" : "black"};
     cursor: ${(props) =>
-            props.isActive || props.isInactive ? "not-allowed" : "pointer"};
-    opacity: ${(props) => (props.isInactive ? 0.3 : 1)};
+            props.$isActive || props.$isInactive ? "not-allowed" : "pointer"};
+    opacity: ${(props) => (props.$isInactive ? 0.3 : 1)};
     transition: background-color 0.3s, transform 0.2s;
 
     &:hover:not(:disabled),
     &:focus:not(:disabled) {
         background-color: ${(props) =>
-                props.isActive || props.isInactive ? "" : "hsl(200, 100%, 75%)"};
+                props.$isActive || props.$isInactive ? "" : "hsl(200, 100%, 75%)"};
         transform: ${(props) =>
-                props.isActive || props.isInactive ? "none" : "scale(1.1)"};
+                props.$isActive || props.$isInactive ? "none" : "scale(1.1)"};
     }
 
     &:disabled {
         cursor: not-allowed;
     }
 `;
+
 
 export function Keyboard({
                              activeLetters,
@@ -93,8 +94,8 @@ export function Keyboard({
                     <KeyButton
                         key={key}
                         onClick={() => addGuessedLetter(key)}
-                        isActive={isActive}
-                        isInactive={isInactive}
+                        $isActive={isActive}
+                        $isInactive={isInactive}
                         disabled={isActive || isInactive || disabled}
                     >
                         {key}

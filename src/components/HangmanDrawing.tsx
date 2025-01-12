@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+type HangmanDrawingProps = {
+    numberOfGuesses: number;
+};
+
+
 // Styled Components
 const Head = styled.div`
     width: 50px;
@@ -98,19 +103,29 @@ const HangmanWrapper = styled.div`
     position: relative;
 `;
 
-export function HangmanDrawing() {
+
+// Drawing Parts in Order
+const parts = [
+    Head,
+    Body,
+    RightArm,
+    LeftArm,
+    RightLeg,
+    LeftLeg,
+];
+
+export function HangmanDrawing({ numberOfGuesses }: HangmanDrawingProps) {
     return (
         <HangmanWrapper>
-            <Head/>
-            <Body/>
-            <RightArm/>
-            <LeftArm/>
-            <RightLeg/>
-            <LeftLeg/>
-            <Pole/>
-            <TopBar/>
-            <VerticalBar/>
-            <Base/>
+            {/* Fixed Elements */}
+            <Pole />
+            <TopBar />
+            <VerticalBar />
+            <Base />
+            {/* Conditional Elements */}
+            {parts.slice(0, numberOfGuesses).map((Part, index) => (
+                <Part key={index} />
+            ))}
         </HangmanWrapper>
-    )
+    );
 }

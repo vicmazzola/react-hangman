@@ -20,9 +20,9 @@ const LetterContainer = styled.span`
   border-bottom: 0.1em solid black;
 `;
 
-const Letter = styled.span<{ isVisible: boolean; isIncorrect: boolean }>`
-  visibility: ${(props) => (props.isVisible ? "visible" : "hidden")};
-  color: ${(props) => (props.isIncorrect ? "red" : "black")};
+const Letter = styled.span<{ $isVisible: boolean; $isIncorrect: boolean }>`
+    visibility: ${(props) => (props.$isVisible ? "visible" : "hidden")};
+    color: ${(props) => (props.$isIncorrect ? "red" : "black")};
 `;
 
 export function HangmanWord({
@@ -38,7 +38,7 @@ export function HangmanWord({
 
                 return (
                     <LetterContainer key={index}>
-                        <Letter isVisible={isVisible} isIncorrect={isIncorrect}>
+                        <Letter $isVisible={isVisible} $isIncorrect={isIncorrect}>
                             {letter}
                         </Letter>
                     </LetterContainer>
