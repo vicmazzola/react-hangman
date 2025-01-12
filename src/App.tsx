@@ -1,5 +1,8 @@
-import {useState} from "react";
+import  {useState} from "react";
 import words from "./wordList.json"
+import {HangmanDrawing} from "./components/HangmanDrawing.tsx"
+import {HangmanWord} from "./components/HangmanWord.tsx"
+import {Keyboard} from "./components/Keyboard.tsx"
 
 
 function getWord() {
@@ -22,6 +25,11 @@ function App() {
                 alignItems: "center",
             }}
         >
+            <div style={{fontSize: "2rem", textAlign: "center"}}>Lose Win</div>
+            <HangmanDrawing/>
+            <HangmanWord/>
+            <Keyboard/>
+
         </div>
     )
 
