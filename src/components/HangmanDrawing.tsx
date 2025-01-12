@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// Styled Components
 const Head = styled.div`
     width: 50px;
     height: 50px;
