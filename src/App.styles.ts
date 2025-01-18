@@ -14,6 +14,38 @@ export const AppContainer = styled.div`
     }
 `;
 
+export const Title = styled.h1`
+    font-size: 3rem;
+    font-style: italic;
+    color: white;
+    margin-bottom: 1rem; 
+
+    @media (max-width: 600px) {
+        font-size: 2.5rem; 
+    }
+
+    @media (max-width: 400px) {
+        font-size: 2rem;
+    }
+`;
+
+export const Subtitle = styled.h2`
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #cccccc;
+    margin-bottom: 1.5rem; 
+
+    @media (max-width: 600px) {
+        font-size: 1.2rem; 
+    }
+
+    @media (max-width: 400px) {
+        font-size: 1rem;
+    }
+`;
+
+
+
 export const ResultText = styled.div`
     font-size: 2rem;
     text-align: center;

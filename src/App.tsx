@@ -3,7 +3,7 @@ import { HangmanDrawing } from "./components/HangmanDrawing.tsx";
 import { HangmanWord } from "./components/HangmanWord.tsx";
 import { Keyboard } from "./components/Keyboard.tsx";
 import words from "./wordList.json";
-import { AppBackground, AppContainer, ResultText, KeyboardWrapper, ResetButton } from "./App.styles";
+import {AppBackground, AppContainer, ResultText, KeyboardWrapper, ResetButton, Title, Subtitle} from "./App.styles";
 
 function getWord() {
     return words[Math.floor(Math.random() * words.length)];
@@ -73,6 +73,8 @@ function App() {
     return (
         <AppBackground>
         <AppContainer>
+            <Title>Guess the Word</Title>
+            <Subtitle>(English words only)</Subtitle>
             <ResultText>
                 {isWinner && "Winner! - Refresh to try again"}
                 {isLoser && "Nice Try - Refresh to try again"}
