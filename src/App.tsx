@@ -3,7 +3,7 @@ import { HangmanDrawing } from "./components/HangmanDrawing.tsx";
 import { HangmanWord } from "./components/HangmanWord.tsx";
 import { Keyboard } from "./components/Keyboard.tsx";
 import words from "./wordList.json";
-import { AppBackground, AppContainer, ResultText, KeyboardWrapper } from "./App.styles";
+import { AppBackground, AppContainer, ResultText, KeyboardWrapper, ResetButton } from "./App.styles";
 
 function getWord() {
     return words[Math.floor(Math.random() * words.length)];
@@ -30,6 +30,12 @@ function App() {
         },
         [guessedLetters, isWinner, isLoser]
     );
+
+    const resetGame = () => {
+        setGuessedLetters([]);
+        setWordToGuess(getWord());
+    };
+
 
     useEffect(() => {
         const handler = (e: KeyboardEvent) => {
@@ -77,16 +83,22 @@ function App() {
                 guessedLetters={guessedLetters}
                 wordToGuess={wordToGuess}
             />
-            <KeyboardWrapper>
-                <Keyboard
-                    disabled={isWinner || isLoser}
-                    activeLetters={guessedLetters.filter((letter) =>
-                        wordToGuess.includes(letter)
-                    )}
-                    inactiveLetters={incorrectLetters}
-                    addGuessedLetter={addGuessedLetter}
-                />
-            </KeyboardWrapper>
+
+            {/* Conditionally render Reset Button or Keyboard */}
+            {isWinner || isLoser ? (
+                <ResetButton onClick={resetGame}>Play Again</ResetButton>
+            ) : (
+                <KeyboardWrapper>
+                    <Keyboard
+                        disabled={isWinner || isLoser}
+                        activeLetters={guessedLetters.filter((letter) =>
+                            wordToGuess.includes(letter)
+                        )}
+                        inactiveLetters={incorrectLetters}
+                        addGuessedLetter={addGuessedLetter}
+                    />
+                </KeyboardWrapper>
+            )}
         </AppContainer>
         </AppBackground>
     );

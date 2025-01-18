@@ -14,6 +14,8 @@ const WordContainer = styled.div`
     font-weight: bold;
     text-transform: uppercase;
     font-family: monospace;
+    flex-wrap: wrap; 
+    justify-content: center;
     @media (max-width: 600px) {
         font-size: 4rem; 
         gap: 0.15em; 
@@ -23,10 +25,16 @@ const WordContainer = styled.div`
         font-size: 3rem; 
         gap: 0.1em;
     }
+
+    @media (max-width: 300px) {
+        font-size: 2.5rem; 
+        gap: 0.05em;
+    }
 `;
 
 const LetterContainer = styled.span`
   border-bottom: 0.1em solid black;
+    
 `;
 
 const Letter = styled.span<{ $isVisible: boolean; $isIncorrect: boolean }>`

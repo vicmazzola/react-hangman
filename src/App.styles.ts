@@ -24,6 +24,29 @@ export const KeyboardWrapper = styled.div`
 `;
 
 
+export const ResetButton = styled.button`
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    background-color: #6a11cb;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: #2575fc;
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+    }
+`;
+
+
+
 export const AppBackground = styled.div`
     min-height: 100vh;
     background: linear-gradient(135deg, #6a11cb, #2575fc); /* Static Purple to Blue Gradient */
