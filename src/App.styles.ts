@@ -1,10 +1,34 @@
 import styled from "styled-components";
 
-export const AppContainer = styled.div`
-    max-width: 800px;
-    width: 100%;
+export const GameWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transform: scale(1); 
+    
+    @media (min-width: 1200px) {
+        transform: scale(0.8); 
+    }
+
+    @media (min-width: 1600px) {
+        transform: scale(0.7); 
+    }
+    
+    @media (max-width: 1280px) and (max-height: 720px) {
+        transform: scale(0.85); 
+    }
+`;
+
+export const AppContainer = styled.div`
+    max-width: 1200px;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     gap: 2rem;
     margin: 0 auto;
     align-items: center;
@@ -12,6 +36,10 @@ export const AppContainer = styled.div`
     @media (max-width: 600px) {
         gap: 1.5rem; 
     }
+
+    @media (max-width: 1280px) and (max-height: 720px) {
+        gap: 1rem; 
+
 `;
 
 export const Title = styled.h1`
@@ -27,6 +55,11 @@ export const Title = styled.h1`
     @media (max-width: 400px) {
         font-size: 2rem;
     }
+
+    @media (max-width: 1280px) and (max-height: 720px) {
+        font-size: 2.7rem; 
+    }
+    
 `;
 
 export const Subtitle = styled.h2`
@@ -42,8 +75,9 @@ export const Subtitle = styled.h2`
     @media (max-width: 400px) {
         font-size: 1rem;
     }
-`;
 
+   
+`;
 
 
 export const ResultText = styled.div`
@@ -53,6 +87,9 @@ export const ResultText = styled.div`
 
 export const KeyboardWrapper = styled.div`
     align-self: stretch;
+
+    
+    
 `;
 
 
@@ -88,6 +125,7 @@ export const AppBackground = styled.div`
     align-items: center;
     padding: 2rem;
     font-family: "Arial", sans-serif;
+    overflow: hidden;
 
     /* Responsive Typography */
     font-size: calc(16px + 0.5vw);

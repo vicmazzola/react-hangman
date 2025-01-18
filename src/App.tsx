@@ -1,9 +1,18 @@
-import { useCallback, useEffect, useState } from "react";
-import { HangmanDrawing } from "./components/HangmanDrawing.tsx";
-import { HangmanWord } from "./components/HangmanWord.tsx";
-import { Keyboard } from "./components/Keyboard.tsx";
+import {useCallback, useEffect, useState} from "react";
+import {HangmanDrawing} from "./components/HangmanDrawing.tsx";
+import {HangmanWord} from "./components/HangmanWord.tsx";
+import {Keyboard} from "./components/Keyboard.tsx";
 import words from "./wordList.json";
-import {AppBackground, AppContainer, ResultText, KeyboardWrapper, ResetButton, Title, Subtitle} from "./App.styles";
+import {
+    AppBackground,
+    AppContainer,
+    ResultText,
+    KeyboardWrapper,
+    ResetButton,
+    Title,
+    Subtitle,
+    GameWrapper
+} from "./App.styles";
 
 function getWord() {
     return words[Math.floor(Math.random() * words.length)];
@@ -72,36 +81,39 @@ function App() {
 
     return (
         <AppBackground>
-        <AppContainer>
-            <Title>Guess the Word</Title>
-            <Subtitle>(English words only)</Subtitle>
-            <ResultText>
-                {isWinner && "Winner! - Refresh to try again"}
-                {isLoser && "Nice Try - Refresh to try again"}
-            </ResultText>
-            <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
-            <HangmanWord
-                reveal={isLoser}
-                guessedLetters={guessedLetters}
-                wordToGuess={wordToGuess}
-            />
-
-            {/* Conditionally render Reset Button or Keyboard */}
-            {isWinner || isLoser ? (
-                <ResetButton onClick={resetGame}>Play Again</ResetButton>
-            ) : (
-                <KeyboardWrapper>
-                    <Keyboard
-                        disabled={isWinner || isLoser}
-                        activeLetters={guessedLetters.filter((letter) =>
-                            wordToGuess.includes(letter)
-                        )}
-                        inactiveLetters={incorrectLetters}
-                        addGuessedLetter={addGuessedLetter}
+            <GameWrapper>
+                <AppContainer>
+                    <Title>Guess the Word</Title>
+                    <Subtitle>(English words only)</Subtitle>
+                    <ResultText>
+                        {isWinner && "Winner! - Refresh to try again"}
+                        {isLoser && "Nice Try - Refresh to try again"}
+                    </ResultText>
+                    <HangmanDrawing numberOfGuesses={incorrectLetters.length}/>
+                    <HangmanWord
+                        reveal={isLoser}
+                        guessedLetters={guessedLetters}
+                        wordToGuess={wordToGuess}
                     />
-                </KeyboardWrapper>
-            )}
-        </AppContainer>
+
+                    {/* Conditionally render Reset Button or Keyboard */}
+                    {isWinner || isLoser ? (
+                        <ResetButton onClick={resetGame}>Play Again</ResetButton>
+                    ) : (
+                        <KeyboardWrapper>
+                            <Keyboard
+                                disabled={isWinner || isLoser}
+                                activeLetters={guessedLetters.filter((letter) =>
+                                    wordToGuess.includes(letter)
+                                )}
+                                inactiveLetters={incorrectLetters}
+                                addGuessedLetter={addGuessedLetter}
+                            />
+                        </KeyboardWrapper>
+                    )}
+                </AppContainer>
+            </GameWrapper>
+
         </AppBackground>
     );
 }
