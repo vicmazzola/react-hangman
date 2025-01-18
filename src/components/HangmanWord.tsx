@@ -14,6 +14,15 @@ const WordContainer = styled.div`
     font-weight: bold;
     text-transform: uppercase;
     font-family: monospace;
+    @media (max-width: 600px) {
+        font-size: 4rem; 
+        gap: 0.15em; 
+    }
+
+    @media (max-width: 400px) {
+        font-size: 3rem; 
+        gap: 0.1em;
+    }
 `;
 
 const LetterContainer = styled.span`

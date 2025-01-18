@@ -8,6 +8,10 @@ export const AppContainer = styled.div`
     gap: 2rem;
     margin: 0 auto;
     align-items: center;
+    text-align: center;
+    @media (max-width: 600px) {
+        gap: 1.5rem; 
+    }
 `;
 
 export const ResultText = styled.div`
