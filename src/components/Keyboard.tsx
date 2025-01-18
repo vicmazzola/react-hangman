@@ -39,12 +39,12 @@ type KeyboardProps = {
 // Styled Components
 const KeyboardContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
     gap: 0.5rem;
     
     @media (max-width: 600px) {
         gap: 0.3rem;
-        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* Smaller buttons */
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); /* Smaller buttons */
     }
 `;
 
@@ -107,6 +107,7 @@ export function Keyboard({
                         $isActive={isActive}
                         $isInactive={isInactive}
                         disabled={isActive || isInactive || disabled}
+
                     >
                         {key}
                     </KeyButton>
